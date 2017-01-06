@@ -28,7 +28,8 @@ msg "Building the website"
 hugo
 
 msg "Pushing the updated \`public\` folder to the \`$SOURCE\` branch"
-git add public
+git subtree add --prefix=public \
+	git@github.com:$USERNAME/$USERNAME.github.io.git 
 git commit -m "$MESSAGE"
 git push origin "$SOURCE"
 
